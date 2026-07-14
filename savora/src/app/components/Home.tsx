@@ -128,8 +128,9 @@ export function Home() {
                 <span className="savora-text-gradient italic font-normal">Start deciding.</span>
               </h1>
               <p className="savora-body max-w-xl mb-10">
-                Savora is the operating brain for independent restaurants — it watches your sales,
-                inventory, staff, and guests, then tells you what to do before problems cost you money.
+                Savora is restaurant software built for independent operators — the operating brain
+                that watches your sales, inventory, staff, and guests, then tells you what to do
+                before problems cost you money.
               </p>
               <a href="#early-access" className="savora-btn">
                 Join the waitlist
@@ -305,9 +306,14 @@ export function Home() {
 
       <footer className="border-t border-white/[0.06] py-10 savora-footer-wash">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src="/assets/savora-logo-white.png" alt="Savora" className="h-11 opacity-70" />
-          <p className="text-sm text-white/35 tracking-wide">
-            © 2026 Savora. The operating brain for independent restaurants.
+          <img
+            src="/assets/savora-logo-white.png"
+            alt="Savora restaurant software logo"
+            className="h-11 opacity-70"
+          />
+          <p className="text-sm text-white/35 tracking-wide text-center md:text-right max-w-md">
+            © 2026 Savora. Restaurant management software for independent restaurants —
+            inventory, staffing, food cost, and daily decisions in one place.
           </p>
         </div>
       </footer>

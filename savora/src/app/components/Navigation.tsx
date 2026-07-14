@@ -16,7 +16,11 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[4.25rem] sm:h-20">
           <Link to="/" className="flex items-center">
-            <img src="/assets/savora-logo-white.png" alt="Savora" className="h-11 sm:h-12 w-auto" />
+            <img
+              src="/assets/savora-logo-white.png"
+              alt="Savora — restaurant software"
+              className="h-11 sm:h-12 w-auto"
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-10">
