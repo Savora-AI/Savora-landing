@@ -1,0 +1,14 @@
+# Large / local docs — keep out of landing repo
+*.pptx
+*.docx
+Savora investor deck/
+Untitled
+
+# Dependencies & build
+**/node_modules/
+**/dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log

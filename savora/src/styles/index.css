@@ -1,0 +1,129 @@
+@import 'tailwindcss' source(none);
+@source '../../**/*.{js,ts,jsx,tsx}';
+
+:root {
+  --savora-bg: #070b14;
+  --savora-charcoal: #03050a;
+  --savora-surface: #0c1220;
+
+  --savora-text: #f8fafc;
+  --savora-muted: rgba(248, 250, 252, 0.62);
+
+  --savora-blue: #4da3ff;
+  --savora-cyan: #2ec9b8;
+  --savora-mint: #5befc8;
+  --savora-teal: #34d399;
+  --savora-lavender: #7ee8c4;
+
+  --savora-primary: var(--savora-blue);
+  --savora-secondary: var(--savora-cyan);
+  --savora-highlight: var(--savora-mint);
+
+  --savora-border: rgba(255, 255, 255, 0.05);
+
+  --glow-blue: rgba(77, 163, 255, 0.2);
+  --glow-cyan: rgba(46, 201, 184, 0.16);
+  --glow-mint: rgba(91, 239, 200, 0.12);
+}
+
+html {
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  background: var(--savora-charcoal);
+  color: var(--savora-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+}
+
+.font-quote-showcase {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+.savora-text-gradient {
+  background: linear-gradient(
+    125deg,
+    #4da3ff 0%,
+    #5befc8 42%,
+    #2ec9b8 72%,
+    #6ee7b7 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.savora-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--savora-lavender);
+}
+
+.savora-body {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--savora-muted);
+}
+
+@media (min-width: 768px) {
+  .savora-body {
+    font-size: 1.25rem;
+  }
+}
+
+.savora-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f4f2ef;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.savora-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(91, 239, 200, 0.35);
+  box-shadow: 0 0 24px var(--glow-cyan);
+}
+
+.savora-white-ring {
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.2),
+    0 0 48px rgba(255, 255, 255, 0.1),
+    0 0 80px rgba(255, 255, 255, 0.05),
+    inset 0 0 32px rgba(255, 255, 255, 0.08);
+}
+
+.savora-footer-wash {
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 100%, rgba(77, 163, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 70% at 80% 100%, rgba(46, 201, 184, 0.04) 0%, transparent 50%),
+    var(--savora-charcoal);
+}
