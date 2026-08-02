@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Sun, ListChecks, TrendingDown } from "lucide-react";
+import { ArrowRight, Sun, ListChecks, TrendingDown, Mail, Phone, Copy, Check } from "lucide-react";
 import { ConvergenceSection } from "./ConvergenceSection";
 import { MeshBackground } from "./MeshBackground";
 import { HeroAmbient } from "./HeroAmbient";
@@ -76,6 +76,19 @@ export function Home() {
   const [email, setEmail] = useState("");
   const [formMessage, setFormMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const copyToClipboard = (text: string, type: "email" | "phone") => {
+    navigator.clipboard.writeText(text);
+    if (type === "email") {
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2000);
+    } else {
+      setCopiedPhone(true);
+      setTimeout(() => setCopiedPhone(false), 2000);
+    }
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -304,19 +317,94 @@ export function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-white/[0.06] py-10 savora-footer-wash">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img
-            src="/assets/savora-logo-white.png"
-            alt="Savora restaurant software logo"
-            className="h-11 opacity-70"
-          />
-          <p className="text-sm text-white/35 tracking-wide text-center md:text-right max-w-md">
-            © 2026 Savora. Restaurant management software for independent restaurants —
-            inventory, staffing, food cost, and daily decisions in one place.
-          </p>
+      <footer className="border-t border-white/[0.06] pt-16 pb-12 savora-footer-wash relative overflow-hidden" id="contact">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          {/* Get in Touch Section */}
+          <div className="mb-16 pb-16 border-b border-white/[0.06]">
+            <div className="max-w-3xl">
+              <p className="savora-label mb-3">Contact Us</p>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-white mb-4 font-medium">
+                Get in Touch
+              </h2>
+              <p className="text-lg md:text-xl text-white/60 mb-10 leading-relaxed font-light">
+                Let's build the future of restaurant operations, together.
+              </p>
+
+              <div className="flex flex-wrap gap-4 sm:gap-6">
+                {/* Email Card */}
+                <div className="group relative flex items-center gap-3 px-5 py-4 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-[var(--savora-lavender)]/40 transition-all duration-300 backdrop-blur-md">
+                  <Mail className="w-5 h-5 text-[var(--savora-lavender)] shrink-0" />
+                  <a
+                    href="mailto:info@platd-ai.com"
+                    className="text-base sm:text-lg text-white/90 hover:text-white font-medium transition-colors"
+                  >
+                    info@platd-ai.com
+                  </a>
+                  <button
+                    onClick={() => copyToClipboard("info@platd-ai.com", "email")}
+                    className="ml-2 p-1.5 text-white/40 hover:text-white/90 transition-colors focus:outline-none"
+                    title="Copy email address"
+                    aria-label="Copy email address"
+                  >
+                    {copiedEmail ? (
+                      <Check className="w-4 h-4 text-emerald-400" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </button>
+                  {copiedEmail && (
+                    <span className="absolute -top-8 right-2 text-xs bg-[var(--savora-surface)] text-[var(--savora-lavender)] px-2 py-1 border border-white/10 shadow-lg">
+                      Copied!
+                    </span>
+                  )}
+                </div>
+
+                {/* Phone Card */}
+                <div className="group relative flex items-center gap-3 px-5 py-4 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-[var(--savora-lavender)]/40 transition-all duration-300 backdrop-blur-md">
+                  <Phone className="w-5 h-5 text-[var(--savora-blue)] shrink-0" />
+                  <a
+                    href="tel:5852307406"
+                    className="text-base sm:text-lg text-white/90 hover:text-white font-medium transition-colors"
+                  >
+                    (585) 230-7406
+                  </a>
+                  <button
+                    onClick={() => copyToClipboard("(585) 230-7406", "phone")}
+                    className="ml-2 p-1.5 text-white/40 hover:text-white/90 transition-colors focus:outline-none"
+                    title="Copy phone number"
+                    aria-label="Copy phone number"
+                  >
+                    {copiedPhone ? (
+                      <Check className="w-4 h-4 text-emerald-400" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </button>
+                  {copiedPhone && (
+                    <span className="absolute -top-8 right-2 text-xs bg-[var(--savora-surface)] text-[var(--savora-lavender)] px-2 py-1 border border-white/10 shadow-lg">
+                      Copied!
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <img
+              src="/assets/savora-logo-white.png"
+              alt="Savora restaurant software logo"
+              className="h-11 opacity-70"
+            />
+            <p className="text-sm text-white/35 tracking-wide text-center md:text-right max-w-md">
+              © 2026 Savora. Restaurant management software for independent restaurants —
+              inventory, staffing, food cost, and daily decisions in one place.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
   );
 }
+
